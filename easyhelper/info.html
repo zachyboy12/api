@@ -1,0 +1,13 @@
+<pre id='content' style="font-family: sans-serif"></pre>
+<script>
+const params = new Proxy(new URLSearchParams(window.location.search), {
+  get: (searchParams, prop) => searchParams.get(prop),
+});
+let code = null;
+try {
+  code = params.code.replaceAll('\n', '<br>');
+} catch (error) {
+  code = params.code;
+}
+document.getElementById("content").innerHTML = params.info;
+</script>

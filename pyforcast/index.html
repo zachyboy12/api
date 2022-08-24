@@ -1,0 +1,27 @@
+<div id="content"></div>
+<script id="hidden">
+  const queryString = new Proxy(new URLSearchParams(window.location.search), {
+  get: (searchParams, prop) => searchParams.get(prop),
+});
+  var url = "https://wttr.in/" + queryString.location;
+  if (queryString.text === "true" || queryString.text == null) {
+    url += "?format=%C+%h+%t+%w";
+  }
+  else if (queryString.text === "false") {
+    // Do nothing
+  }
+  if (queryString.about === "true") {
+    var url = null;
+  }
+  // To do: PNG to ASCII art
+  if (url !== null) {
+    const xmlHttp = new XMLHttpRequest();
+    xmlHttp.open("GET", url, false);
+    xmlHttp.send(null);
+    document.getElementById("content").innerHTML = xmlHttp.responseText.replaceAll("↓", "").replaceAll("+", "").replaceAll("←", "").replaceAll("→", "").replaceAll("↓", "").replaceAll("↖", "").replaceAll("↑", "").replaceAll("↗", "").replaceAll("↘", "").replaceAll("↙", "")
+  }
+  else {
+    document.getElementById("content").innerHTML = "About<br><br>Once upon a time, there was a boy. He wanted for people to have fun coding with modules. He decided to create his own.<br>So he built and built and built. He even built a website!<br><br>And that's where this website's born.<br><br>Guess who he is?<br><br>I am the boy!!!<br>The end<br><br><br>How to use the PyForcast API:<br>●   Specify location (as a query string) like this: ?location=[your-location-name-here]<br>●   You can also specify the text query string. If you set the value to true, it will create ASCII colored weather graph. Else, do text version<br>●   Lastly, you can set about to true to get this page.<br><br><br>I hope you have an amazing day using this API."
+  }
+  document.body.removeChild(document.getElementById("hidden"))
+</script>

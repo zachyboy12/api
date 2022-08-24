@@ -1,0 +1,19 @@
+<pre id='content'></pre>
+<script>
+const queryString = new Proxy(new URLSearchParams(window.location.search), {
+  get: (searchParams, prop) => searchParams.get(prop),
+});
+const files = queryString.files.split(' ');
+const code = queryString.code.split('-_)-_-(_-');
+for (let file in files) {
+  let content = code[file].replaceAll('<<<<<>><ajsljkd;faljdf;>>', '\n');
+  const blob = new Blob([content])
+  const fileURL = URL.createObjectURL(blob);
+  const linkElement = document.createElement("a");
+  linkElement.setAttribute('href', fileURL);
+  linkElement.setAttribute('download', files[file])
+  document.body.appendChild(linkElement);
+  linkElement.click()
+  document.body.removeChild(linkElement)
+}
+</script>

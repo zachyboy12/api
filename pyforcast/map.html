@@ -1,0 +1,10 @@
+<img id="map" style="display: block;-webkit-user-select: none;margin: auto;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;margin: 0px; background: #0e0e0e; height: 100%; width: 100%; object-fit: scale-down;">
+<meta name="viewport" content="width=device-width, minimum-scale=0.1">
+<script id="hidden">
+  const queryString = new Proxy(new URLSearchParams(window.location.search), {
+  get: (searchParams, prop) => searchParams.get(prop),
+});
+  const url = "https://v3.wttr.in/" + queryString.location + ".png";
+  document.getElementById("map").setAttribute("src", url)
+  document.body.removeChild(document.getElementById("hidden"))
+</script>
