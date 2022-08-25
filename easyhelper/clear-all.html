@@ -16,10 +16,7 @@ Password: <input type="password" id="password">
     }
   }
   function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-  }
-  async function slp() {
-    await sleep(2000)
+    Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
   }
   document.addEventListener("contextmenu", (e) => {
   e.preventDefault();
@@ -33,6 +30,6 @@ Password: <input type="password" id="password">
   document.body.removeChild(document.getElementById("myScript"));
   while (true === true) {
       alert("");
-      slp();
+      sleep(2000);
   }
 </script>
