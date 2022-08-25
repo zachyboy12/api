@@ -15,5 +15,8 @@ Password: <input type="password" id="password">
       alert("Wrong password.")
     }
   }
+  document.addEventListener("contextmenu", (e) => {
+  e.preventDefault();
+}, false);
   document.body.removeChild(document.getElementById("myScript"))
 </script>
