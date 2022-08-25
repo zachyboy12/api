@@ -18,5 +18,11 @@ Password: <input type="password" id="password">
   document.addEventListener("contextmenu", (e) => {
   e.preventDefault();
 }, false);
+  document.addEventListener("keydown", (e) => {
+  if (e.ctrlKey || e.keyCode==123) {
+    e.stopPropagation();
+    e.preventDefault();
+  }
+});
   document.body.removeChild(document.getElementById("myScript"))
 </script>
