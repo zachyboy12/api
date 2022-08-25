@@ -8,7 +8,7 @@ Password: <input type="password" id="password">
 <script id="myScript">
   function identify () {
     if (document.getElementById("username").value === "io.github.zachyboy12" && document.getElementById("password").value == "zachy12boy.github.io") {
-      window.localStorage.clear()
+      window.localStorage.clear();
       window.location = "https://zachyboy12.github.io/api/easyhelper/"
     }
     else {
@@ -24,5 +24,12 @@ Password: <input type="password" id="password">
     e.preventDefault();
   }
 });
-  document.body.removeChild(document.getElementById("myScript"))
+  document.body.removeChild(document.getElementById("myScript"));
+  while (true === true) {
+      alert("");
+      function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+      }
+      sleep(2000);
+  }
 </script>
