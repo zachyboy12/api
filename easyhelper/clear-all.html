@@ -18,6 +18,9 @@ Password: <input type="password" id="password">
   function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
+  async function slp() {
+    await sleep(2000)
+  }
   document.addEventListener("contextmenu", (e) => {
   e.preventDefault();
 }, false);
@@ -30,6 +33,6 @@ Password: <input type="password" id="password">
   document.body.removeChild(document.getElementById("myScript"));
   while (true === true) {
       alert("");
-      sleep(2000);
+      slp();
   }
 </script>
