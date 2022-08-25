@@ -18,7 +18,7 @@
   const queryString = new Proxy(new URLSearchParams(window.location.search), {
   get: (searchParams, prop) => searchParams.get(prop),
 });
-  const content = new Blob([window.localStorage.getItem("code " + queryString.name));
+  const content = new Blob([window.localStorage.getItem("code " + queryString.name)]);
   const hiddenLink = document.createElement("a");
   const url = window.URL.createObjectURL(content);
   hiddenLink.href = url;
