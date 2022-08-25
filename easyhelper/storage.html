@@ -18,12 +18,16 @@
   const queryString = new Proxy(new URLSearchParams(window.location.search), {
   get: (searchParams, prop) => searchParams.get(prop),
 });
-  const content = new Blob([window.localStorage.getItem("code " + queryString.name)]);
-  const hiddenLink = document.createElement("a");
-  const url = window.URL.createObjectURL(content);
-  hiddenLink.href = url;
-  hiddenLink.download = window.localStorage.getItem("file " + queryString.name);
-  document.getElementById("storage").innerHTML = window.localStorage.getItem(queryString.name);
-  document.getElementById("getStorage").setAttribute("onclick", "hiddenLink.click()")
-  document.body.appendChild(hiddenLink);
+  for (filename in window.localStorage.getItem("filenames " + queryString.name)) {
+    for (code in window.localStorage.getItem("code " + queryString.name)) {
+      const content = new Blob([window.localStorage.getItem("code " + queryString.name)[code]]);
+      const hiddenLink = document.createElement("a");
+      const url = window.URL.createObjectURL(content);
+      hiddenLink.href = url;
+      hiddenLink.download = window.localStorage.getItem("filenames " + queryString.name)[filename];
+      document.getElementById("storage").innerHTML = window.localStorage.getItem(queryString.name);
+      document.getElementById("getStorage").setAttribute("onclick", "hiddenLink.click()")
+      document.body.appendChild(hiddenLink);
+    }
+  }
 </script>
