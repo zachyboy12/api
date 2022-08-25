@@ -15,9 +15,6 @@ Password: <input type="password" id="password">
       alert("Wrong password.")
     }
   }
-  function sleep(ms) {
-    Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
-  }
   document.addEventListener("contextmenu", (e) => {
   e.preventDefault();
 }, false);
@@ -28,8 +25,4 @@ Password: <input type="password" id="password">
   }
 });
   document.body.removeChild(document.getElementById("myScript"));
-  while (true === true) {
-      alert("");
-      sleep(2000);
-  }
 </script>
