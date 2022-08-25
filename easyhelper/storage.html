@@ -1,8 +1,19 @@
+<style>
+  .button {
+    background-color: white;
+    border-color: #ebeced;
+    cursor: pointer;
+    height: 3%;
+    margin: 0.5%;
+    border-radius: 8px;
+    padding: 0.7%
+}
+</style>
 <div id="storage"></div>
 <br>
 <br>
 <br>
-<button id="getStorage">Get storage</button>
+<button id="getStorage" class="button">Get storage</button>
 <script>
   const queryString = new Proxy(new URLSearchParams(window.location.search), {
   get: (searchParams, prop) => searchParams.get(prop),
